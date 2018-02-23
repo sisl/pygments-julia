@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-# Based on file here: https://bitbucket.org/natashawatkins/pygments-main/src/a893dbff5bfc4359d07d222bb9c3b4a0dec062bc/pygments/lexers/julia.py?fileviewer=file-view-default
 """
     pygments.lexers.julia
     ~~~~~~~~~~~~~~~~~~~~~
 
-    Lexers for the Julia language.
-
-    :copyright: Copyright 2006-2017 by the Pygments team, see AUTHORS.
-    :license: BSD, see LICENSE for details.
+    Lexers for the Julia 0.6 language.
+    :license: MIT, see LICENSE for details.
 """
 
 import re
