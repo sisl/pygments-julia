@@ -18,19 +18,19 @@ from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
     Number, Punctuation, Generic
 from pygments.util import shebang_matches, unirange
 
-__all__ = ['Julia6Lexer', 'Julia6ConsoleLexer']
+__all__ = ['Julia1Lexer', 'Julia1ConsoleLexer']
 
 allowed_variable = (
     u'(?:[a-zA-Z_\u00A1-\uffff]|%s)(?:[a-zA-Z_0-9\u00A1-\uffff]|%s)*!*' %
     ((unirange(0x10000, 0x10ffff),) * 2))
 
-class Julia6Lexer(RegexLexer):
+class Julia1Lexer(RegexLexer):
     """
     For `Julia <http://julialang.org/>`_ source code.
     """
 
     name = 'Julia'
-    aliases = ['julia6', 'jl6']
+    aliases = ['julia1', 'jl1']
     filenames = ['*.jl']
     mimetypes = ['text/x-julia', 'application/x-julia']
 
@@ -217,15 +217,15 @@ class Julia6Lexer(RegexLexer):
         return shebang_matches(text, r'julia')
 
 
-class Julia6ConsoleLexer(Lexer):
+class Julia1ConsoleLexer(Lexer):
     """
     For Julia console sessions. Modeled after MatlabSessionLexer.
     """
     name = 'Julia console'
-    aliases = ['jlcon6']
+    aliases = ['jlcon1']
 
     def get_tokens_unprocessed(self, text):
-        jllexer = Julia6Lexer(**self.options)
+        jllexer = Julia1Lexer(**self.options)
         start = 0
         curcode = ''
         insertions = []

@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='pygments-julia6',
+    name='pygments-julia1',
     description='Pygments lexers for Julia.',
     long_description=open('README.md').read(),
     keywords='pygments julia lexer',
@@ -12,8 +12,8 @@ setup(
     install_requires=['pygments>=2.2'],
 
     entry_points='''[pygments.lexers]
-                    julia6=pygments_julia6:Julia6Lexer
-					jlcon6=pygments_julia6:Julia6ConsoleLexer
+                    julia1=pygments_julia1:Julia1Lexer
+					jlcon1=pygments_julia1:Julia1ConsoleLexer
 					''',
 
     classifiers=[
