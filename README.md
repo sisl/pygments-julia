@@ -5,7 +5,7 @@ A custom Julia lexer for [Pygments](http://pygments.org/).
 ## Install
 
     $ git clone **url**
-    $ cd pygments-julia1
+    $ cd pygments-julia
     $ (sudo) python setup.py install
 
 ### Verify

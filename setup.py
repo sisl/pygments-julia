@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='pygments-julia1',
+    name='pygments-julia',
     description='Pygments lexers for Julia.',
     long_description=open('README.md').read(),
     keywords='pygments julia lexer',
