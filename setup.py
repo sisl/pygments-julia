@@ -12,8 +12,8 @@ setup(
     install_requires=['pygments>=2.2'],
 
     entry_points='''[pygments.lexers]
-                    julia1=pygments_julia1:Julia1Lexer
-					jlcon1=pygments_julia1:Julia1ConsoleLexer
+                    julia1=pygments_julia:Julia1Lexer
+					jlcon1=pygments_julia:Julia1ConsoleLexer
 					''',
 
     classifiers=[
