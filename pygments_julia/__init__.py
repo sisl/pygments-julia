@@ -150,6 +150,7 @@ class Julia1Lexer(RegexLexer):
             (r'"""', String, 'tqstring'),
             (r'"', String, 'string'),
             (numbers, Number),
+            (r'\b(if|else|elseif|for|while|do|try|catch|finally|return|break|continue|in)\b', Keyword),
             (r'end', Name.Builtin),
             (r'\b(?:(' + allowed_variable + r')(?=\())', Name.Function),
             (allowed_variable, Name.Variable),
@@ -157,7 +158,6 @@ class Julia1Lexer(RegexLexer):
             (symb_op_ascii, Operator),
             (symb_op_unicode, Operator),
             (symb_id, Operator),
-            (r'\b(if|else|elseif|for|while|do|try|catch|finally|return|break|continue|in)\b', Keyword),
             (r' ', Text),
             (r'(?<=[.\w)\]])\'+', Operator), # Also try to match trailing transpose when inside index.
             (r'\]', Punctuation, '#pop'),
