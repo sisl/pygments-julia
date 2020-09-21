@@ -133,6 +133,7 @@ class Julia1Lexer(RegexLexer):
             (allowed_variable, Name.Variable),
 
             # macros
+            (r'@\.', Name.Decorator),
             (r'@' + allowed_variable, Name.Decorator),
 
         ],
