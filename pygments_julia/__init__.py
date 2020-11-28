@@ -79,18 +79,6 @@ class Julia1Lexer(RegexLexer):
             (r'(true|false)\b', Keyword.Constant),
             (r'\b(mutable|immutable|struct|begin|end|function|macro|quote|let|local|global|const|abstract|module|baremodule|using|import|export|in)\b', Keyword),
             (r'\b(if|else|elseif|for|while|do|try|catch|finally|return|break|continue)\b', Keyword),
-            (words([
-                'ARGS', 'CPU_CORES', 'C_NULL', 'DevNull', 'ENDIAN_BOM',
-                'ENV', 'I', 'Inf', 'Inf16', 'Inf32', 'Inf64',
-                'InsertionSort', 'JULIA_HOME', 'LOAD_PATH', 'MergeSort',
-                'NaN', 'NaN16', 'NaN32', 'NaN64', 'OS_NAME',
-                'QuickSort', 'RoundDown', 'RoundFromZero', 'RoundNearest',
-                'RoundNearestTiesAway', 'RoundNearestTiesUp',
-                'RoundToZero', 'RoundUp', 'STDERR', 'STDIN', 'STDOUT',
-                'VERSION', 'WORD_SIZE', 'catalan', 'e',
-                'eulergamma', 'golden', 'im', 'nothing',
-                ],
-                suffix=r'\b'), Keyword.Reserved),
             (r'julia>', Generic.Prompt),
             # built ins
             (base_types, Name.Builtin),
