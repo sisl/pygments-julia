@@ -15,7 +15,7 @@ import re
 from pygments.lexer import Lexer, RegexLexer, bygroups, do_insertions, \
     words, include
 from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
-    Number, Punctuation, Generic
+    Literal, Number, Punctuation, Generic
 from pygments.util import shebang_matches
 
 __all__ = ['Julia1Lexer', 'Julia1ConsoleLexer']
@@ -72,7 +72,7 @@ class Julia1Lexer(RegexLexer):
             (r'[\[\]{}(),;.]', Punctuation),
 
             # literals
-            (r'\b(true|false|nothing|missing|im|uninitialized|NaN|NaN16|NaN32|NaN64|Inf|Inf16|Inf32|Inf64|ARGS|C_NULL|ENDIAN_BOM|ENV|LOAD_PATH|PROGRAM_FILE|STDERR|STDIN|STDOUT|VERSION)\b', Keyword),
+            (r'\b(true|false|nothing|missing|im|uninitialized|NaN|NaN16|NaN32|NaN64|Inf|Inf16|Inf32|Inf64|ARGS|C_NULL|ENDIAN_BOM|ENV|LOAD_PATH|PROGRAM_FILE|STDERR|STDIN|STDOUT|VERSION)\b', Literal),
             (numbers, Number),
 
             # keywords
