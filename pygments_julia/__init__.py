@@ -142,10 +142,10 @@ class Julia1Lexer(RegexLexer):
             (r'end', Name.Builtin),
             (r'\b(?:(' + allowed_variable + r')(?=\())', Name.Function),
             (allowed_variable, Name.Variable),
-            (r'[\(\)\+\-\*\/,.:;]', Punctuation),
             (symb_op_ascii, Operator),
             (symb_op_unicode, Operator),
             (symb_id, Operator),
+            (r'[\(\)\+\-\*\/,.:;]', Punctuation),
             (r' ', Text),
             (r'(?<=[.\w)\]])\'+', Operator), # Also try to match trailing transpose when inside index.
             (r'\]', Punctuation, '#pop'),
