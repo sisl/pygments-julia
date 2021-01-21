@@ -6,7 +6,7 @@
 
     Lexers for the Julia language.
 
-    :copyright: Copyright 2006-2017 by the Pygments team, see AUTHORS.
+    :copyright: Copyright 2006-2021 by the Pygments team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 """
 
@@ -64,9 +64,6 @@ class Julia1Lexer(RegexLexer):
             # comments
             (r'#=', Comment.Multiline, "blockcomment"),
             (r'#.*$', Comment),
-
-            # array indexing
-            (r'([\[])',  Punctuation, "index"),
 
             # punctuation symbols
             (r'[\[\]{}(),;.]', Punctuation),
@@ -131,24 +128,6 @@ class Julia1Lexer(RegexLexer):
             (r'#=', Comment.Multiline, '#push'),
             (r'=#', Comment.Multiline, '#pop'),
             (r'[=#]', Comment.Multiline),
-        ],
-
-        "index": [
-            (r'\[', Punctuation, '#push'),
-            (r'"""', String, 'tqstring'),
-            (r'"', String, 'string'),
-            (numbers, Number),
-            (r'\b(if|else|elseif|for|while|do|try|catch|finally|return|break|continue|in)\b', Keyword),
-            (r'end', Name.Builtin),
-            (r'\b(?:(' + allowed_variable + r')(?=\())', Name.Function),
-            (allowed_variable, Name.Variable),
-            (symb_op_ascii, Operator),
-            (symb_op_unicode, Operator),
-            (symb_id, Operator),
-            (r'[\(\)\+\-\*\/,.:;]', Punctuation),
-            (r' ', Text),
-            (r'(?<=[.\w)\]])\'+', Operator), # Also try to match trailing transpose when inside index.
-            (r'\]', Punctuation, '#pop'),
         ],
 
         'string': [
