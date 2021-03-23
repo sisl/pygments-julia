@@ -10,7 +10,7 @@ You can use PIP:
 
 Alternatively, you can run these commands
 
-    $ git clone **url**
+    $ git clone https://github.com/sisl/pygments-julia.git
     $ cd pygments-julia
     $ (sudo) python setup.py install
 
