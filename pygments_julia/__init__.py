@@ -51,9 +51,6 @@ class Julia1Lexer(RegexLexer):
     # Multi-character operators
     long_op = r'(?:\+=|-=|\*=|/=|//=|\\\\=|^=|÷=|%=|<<=|>>=|>>>=|\|=|&=|:=|=>|$=|\|\||&&|<:|>:|\|>|<\||//|\+\+|<=|>=|->|===|==|!==|!=)'
 
-    # numbers
-    numbers = r'[0123456789]'
-
     tokens = {
 
         'root': [
@@ -65,12 +62,22 @@ class Julia1Lexer(RegexLexer):
             (r'#=', Comment.Multiline, "blockcomment"),
             (r'#.*$', Comment),
 
+            # numbers
+            # similar to https://github.com/pygments/pygments/blob/master/pygments/lexers/julia.py
+            # except we have -? at the start to match negative signs
+            (r'-?(\d+((_\d+)+)?\.(?!\.)(\d+((_\d+)+)?)?|\.\d+((_\d+)+)?)([eEf][+-]?[0-9]+)?', Number.Float),
+            (r'-?\d+((_\d+)+)?[eEf][+-]?[0-9]+', Number.Float),
+            (r'-?0x[a-fA-F0-9]+((_[a-fA-F0-9]+)+)?(\.([a-fA-F0-9]+((_[a-fA-F0-9]+)+)?)?)?p[+-]?\d+', Number.Float),
+            (r'-?0b[01]+((_[01]+)+)?', Number.Bin),
+            (r'-?0o[0-7]+((_[0-7]+)+)?', Number.Oct),
+            (r'-?0x[a-fA-F0-9]+((_[a-fA-F0-9]+)+)?', Number.Hex),
+            (r'-?\d+((_\d+)+)?', Number.Integer),
+
             # punctuation symbols
             (r'[\[\]{}(),;.]', Punctuation),
 
             # literals
             (r'\b(true|false|nothing|missing|im|uninitialized|NaN|NaN16|NaN32|NaN64|Inf|Inf16|Inf32|Inf64|ARGS|C_NULL|ENDIAN_BOM|ENV|LOAD_PATH|PROGRAM_FILE|STDERR|STDIN|STDOUT|VERSION)\b', Literal),
-            (numbers, Number),
 
             # keywords
             (r'(true|false)\b', Keyword.Constant),
