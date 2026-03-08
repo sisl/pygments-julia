@@ -4,7 +4,13 @@ A custom Julia lexer for [Pygments](http://pygments.org/).
 
 ## Install
 
-    $ git clone **url**
+You can use PIP:
+
+    $ pip install --upgrade git+https://github.com/sisl/pygments-julia#egg=pygments_julia
+
+Alternatively, you can run these commands
+
+    $ git clone https://github.com/sisl/pygments-julia.git
     $ cd pygments-julia
     $ (sudo) python setup.py install
 
