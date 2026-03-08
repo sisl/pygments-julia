@@ -16,7 +16,14 @@ from pygments.lexer import Lexer, RegexLexer, bygroups, do_insertions, \
     words, include
 from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
     Number, Punctuation, Generic
-from pygments.util import shebang_matches, unirange
+from pygments.util import shebang_matches
+
+# unirange was removed from Pygments >=2.12; provide a local fallback.
+try:
+    from pygments.util import unirange
+except ImportError:
+    def unirange(a, b):
+        return '[%s-%s]' % (chr(a), chr(b))
 
 __all__ = ['Julia1Lexer', 'Julia1ConsoleLexer']
 
